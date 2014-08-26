@@ -20,7 +20,7 @@ env = SConscript(['build_core/SConscript'])
 
 vars = Variables()
 
-vars.Add('BINDINGS', 'Bindings to build (comma separated list): cpp, c, java, js, unity', 'cpp,c,java,js,unity')
+vars.Add('BINDINGS', 'Bindings to build (comma separated list): cpp, c, java, js, python, unity', 'cpp,c,java,js,python,unity')
 vars.Add('SERVICES', 'AllJoyn services libraries to build (comma separated list): config,controlpanel,notification,onboarding,audio', '')
 vars.Add(EnumVariable('BUILD_SERVICES_SAMPLES', 'Build the services samples that require libxml2 and json libraries.', 'on', allowed_values = ['on', 'off']))
 vars.Update(env)
@@ -54,6 +54,9 @@ if 'java' in bindings:
 
 if 'js' in bindings:
     env.SConscript(['alljoyn_js/SConscript'])
+
+if 'python' in bindings:
+    env.SConscript(['alljoyn_python/SConscript'])
 
 # Always build AboutService.
 env.SConscript(['services/about/SConscript'])

@@ -96,7 +96,7 @@ if target_os in ['win8', 'win7', 'winxp']:
     env = Environment(variables = vars, TARGET_ARCH=target_cpu, MSVC_VERSION=msvc_version, tools = ['default', 'jar'], ENV = {'PATH' : path})
 
 else:
-    env = Environment(variables = vars, tools = ['gnulink', 'gcc', 'g++', 'ar', 'as', 'javac', 'javah', 'jar', 'pdf', 'pdflatex'])
+    env = Environment(variables = vars, tools = ['gnulink', 'gcc', 'g++', 'ar', 'as', 'javac', 'javah', 'jar', 'pdf', 'pdflatex', 'swig'])
 
 if env['V'] == '0':
     env.Replace(CCCOMSTR =     '\t[CC]      $SOURCE',
